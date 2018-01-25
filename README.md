@@ -56,7 +56,14 @@
 
 可以看出其实各个模型的RMSE差别并不是很大，这一点让我有些失望，但是还是照着原来的计划前进
 
-接下来的工作就是根据
+接下来的工作就是将`ForecastDataforTesting`的十种模型根据各模型的RMSE进行加权求和，从而得到融合后的后五天预测值`testingDataFusion.mat`（这一文件已上传）
+
+到这里，`testingDataFusion.mat`是我们数据处理方面的最终结果，到这里数据处理方面结束
+
+### 飞行器路径规划问题
+
+使用`resultProcess.py`可以将`testingDataFusion.mat`可视化呈现
+即，将后五天各地的风速预测值显示并保存为图片，这里我使用了Photoshop将5天，每天18各小时共90张图做成GIF动画
 
 
 
