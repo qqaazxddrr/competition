@@ -64,7 +64,14 @@
 
 使用`resultProcess.py`可以将`testingDataFusion.mat`可视化呈现
 即，将后五天各地的风速预测值显示并保存为图片，这里我使用了Photoshop将5天，每天18各小时共90张图做成GIF动画
+下图是原始数据：
 ![](/resource/image/gif1.gif)
+
+下面是阈值化后的图像，其中蓝色是危险区域：
+
+![](/resource/image/gif2.gif)
+
+题目中
 
 
 
