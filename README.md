@@ -21,5 +21,32 @@ competition named future challenge in Tianchi
                               `目标函数值 = 24*60*飞行器坠毁数 + 顺利到达的飞行器总飞行时长（分钟）`
 
 ## 比赛分析
+这个比赛大致可以分为两个较为独立的部分：
+
+- 数据的处理以及预测天气图的生成
+- 对于预测天气图的路径规划问题
+
+### 数据的处理
+比赛的举办方提供了三组数据分别是：
+
+
+- `ForecastDataforTraining`:十种预测模型对于前五天的风速预测
+- `ForecastDataforTesting`:十种预测模型对于后五天的风速预测
+- `In_situMeasurementforTraining`:前五天的真实风速值
+
+由于在介绍中所提及的，每一个模型对于风速的预测准确度高达90%～95%（感觉都可以拿来直接用了）
+但是为了获得最为优秀的预测模型，所以我决定对十种预测模型进行融合
+
+融合的思想十分简单，就是将`ForecastDataforTraining`里十种模型的预测值
+分别与`In_situMeasurementforTraining`的真实值求均方根误差
+基于均方根误差后对`ForecastDataforTesting`里的十种模型进行加权求和，从而得到一个融合后的后五天风速预测
+
+数据处理的代码在`/data`文件夹里，其中：
+
+- `getModel.py`：将`ForecastDataforTraining`中的某个模型数据提取出来，存储为`.mat`格式
+- `getGroundTruth.py`：将`In_situMeasurementforTraining`中的某个模型数据提取出来，存储为`.mat`格式
+- `modelVar.py`
+
+
 
 
